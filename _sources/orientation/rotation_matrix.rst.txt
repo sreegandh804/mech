@@ -1,0 +1,19 @@
+Rotation matrix
+===============
+
+.. automodule:: ivy_mech.orientation.rotation_matrix
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Rotation matrix
+
+   rotation_matrix/rot_vec_to_rot_mat.rst
+   rotation_matrix/quaternion_to_rot_mat.rst
+   rotation_matrix/euler_to_rot_mat.rst
+   rotation_matrix/target_facing_rotation_matrix.rst
+

@@ -1,0 +1,18 @@
+Matrix pose
+===========
+
+.. automodule:: ivy_mech.pose.matrix_pose
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Matrix pose
+
+   matrix_pose/quaternion_pose_to_mat_pose.rst
+   matrix_pose/euler_pose_to_mat_pose.rst
+   matrix_pose/rot_vec_pose_to_mat_pose.rst
+

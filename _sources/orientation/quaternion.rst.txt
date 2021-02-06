@@ -1,0 +1,24 @@
+Quaternion
+==========
+
+.. automodule:: ivy_mech.orientation.quaternion
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Quaternion
+
+   quaternion/axis_angle_to_quaternion.rst
+   quaternion/polar_axis_angle_to_quaternion.rst
+   quaternion/rot_mat_to_quaternion.rst
+   quaternion/rotation_vector_to_quaternion.rst
+   quaternion/euler_to_quaternion.rst
+   quaternion/inverse_quaternion.rst
+   quaternion/get_random_quaternion.rst
+   quaternion/scale_quaternion_rotation_angle.rst
+   quaternion/hamilton_product.rst
+

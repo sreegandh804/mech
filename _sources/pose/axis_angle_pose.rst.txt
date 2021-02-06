@@ -1,0 +1,17 @@
+Axis angle pose
+===============
+
+.. automodule:: ivy_mech.pose.axis_angle_pose
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Axis angle pose
+
+   axis_angle_pose/mat_pose_to_rot_vec_pose.rst
+   axis_angle_pose/quaternion_pose_to_rot_vec_pose.rst
+

@@ -1,0 +1,16 @@
+Euler pose
+==========
+
+.. automodule:: ivy_mech.pose.euler_pose
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Euler pose
+
+   euler_pose/mat_pose_to_euler_pose.rst
+

@@ -1,0 +1,17 @@
+Euler angles
+============
+
+.. automodule:: ivy_mech.orientation.euler_angles
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Euler angles
+
+   euler_angles/rot_mat_to_euler.rst
+   euler_angles/quaternion_to_euler.rst
+

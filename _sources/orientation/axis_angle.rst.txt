@@ -1,0 +1,18 @@
+Axis angle
+==========
+
+.. automodule:: ivy_mech.orientation.axis_angle
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+
+.. toctree::
+   :maxdepth: -1
+   :caption: Axis angle
+
+   axis_angle/quaternion_to_axis_angle.rst
+   axis_angle/quaternion_to_polar_axis_angle.rst
+   axis_angle/quaternion_to_rotation_vector.rst
+

@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ivy_mech.orientation.rotation_matrix &mdash; Ivy Mech 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Ivy Mech
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Orientation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../orientation/axis_angle.html">Axis angle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../orientation/euler_angles.html">Euler angles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../orientation/quaternion.html">Quaternion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../orientation/rotation_matrix.html">Rotation matrix</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pose</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pose/axis_angle_pose.html">Axis angle pose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pose/euler_pose.html">Euler pose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pose/matrix_pose.html">Matrix pose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pose/quaternion_pose.html">Quaternion pose</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Position</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../position/coordinate_conversions.html">Coordinate conversions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../position/transformations.html">Transformations</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ivy"">Ivy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mech"">Ivy Mech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vision"">Ivy Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../robot"">Ivy Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gym"">Ivy Gym</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Ivy Mech</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ivy_mech.orientation.rotation_matrix</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ivy_mech.orientation.rotation_matrix</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Collection of Rotation Conversion Functions to Rotation Matrix Format</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># global</span>
+<span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="k">import</span> <span class="n">get_framework</span> <span class="k">as</span> <span class="n">_get_framework</span>
+
+<span class="c1"># local</span>
+<span class="kn">from</span> <span class="nn">ivy_mech.orientation</span> <span class="k">import</span> <span class="n">quaternion</span> <span class="k">as</span> <span class="n">_ivy_quat</span>
+
+
+<span class="c1"># Private Helpers #</span>
+<span class="c1"># ----------------#</span>
+
+<span class="k">def</span> <span class="nf">_x_axis_rotation_matrix</span><span class="p">(</span><span class="n">identity_matrix</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_theta</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="n">rot_x_u</span> <span class="o">=</span> <span class="n">identity_matrix</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">rot_x_m</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">zeros</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">,</span> <span class="o">-</span><span class="n">sin_theta</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rot_x_l</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">zeros</span><span class="p">,</span> <span class="n">sin_theta</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_x_u</span><span class="p">,</span> <span class="n">rot_x_m</span><span class="p">,</span> <span class="n">rot_x_l</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_y_axis_rotation_matrix</span><span class="p">(</span><span class="n">identity_matrix</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_theta</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="n">rot_y_u</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cos_theta</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_theta</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rot_y_m</span> <span class="o">=</span> <span class="n">identity_matrix</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">rot_y_l</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="o">-</span><span class="n">sin_theta</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_y_u</span><span class="p">,</span> <span class="n">rot_y_m</span><span class="p">,</span> <span class="n">rot_y_l</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_z_axis_rotation_matrix</span><span class="p">(</span><span class="n">identity_matrix</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_theta</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="n">rot_z_u</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cos_theta</span><span class="p">,</span> <span class="o">-</span><span class="n">sin_theta</span><span class="p">,</span> <span class="n">zeros</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rot_z_m</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">sin_theta</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">,</span> <span class="n">zeros</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rot_z_l</span> <span class="o">=</span> <span class="n">identity_matrix</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_z_u</span><span class="p">,</span> <span class="n">rot_z_m</span><span class="p">,</span> <span class="n">rot_z_l</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">ROTATION_FUNC_DICT</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">_x_axis_rotation_matrix</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">_y_axis_rotation_matrix</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">_z_axis_rotation_matrix</span><span class="p">}</span>
+
+
+<span class="c1"># General #</span>
+<span class="c1"># --------#</span>
+
+<div class="viewcode-block" id="rot_vec_to_rot_mat"><a class="viewcode-back" href="../../../orientation/rotation_matrix/rot_vec_to_rot_mat.html#ivy_mech.orientation.rotation_matrix.rot_vec_to_rot_mat">[docs]</a><span class="k">def</span> <span class="nf">rot_vec_to_rot_mat</span><span class="p">(</span><span class="n">rot_vec</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert rotation vector :math:`\mathbf{θ}_{rv} = [θe_x, θe_y, θe_z]` to rotation matrix</span>
+<span class="sd">    :math:`\mathbf{R}\in\mathbb{R}^{3×3}`.\n</span>
+<span class="sd">    `[reference] &lt;https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle&gt;`_</span>
+
+<span class="sd">    :param rot_vec: Rotation vector *[batch_shape,3]*</span>
+<span class="sd">    :type rot_vec: array</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation matrix *[batch_shape,3,3]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">rot_vec</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 1</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">reductions</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">rot_vec</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rot_vec</span> <span class="o">/</span> <span class="n">t</span>
+
+    <span class="c1"># BS x 1 x 1</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sint</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ux</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">uy</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">uz</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">om_cost</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">cost</span>
+    <span class="n">ux_sint</span> <span class="o">=</span> <span class="n">ux</span> <span class="o">*</span> <span class="n">sint</span>
+    <span class="n">uy_sint</span> <span class="o">=</span> <span class="n">uy</span> <span class="o">*</span> <span class="n">sint</span>
+    <span class="n">uz_sint</span> <span class="o">=</span> <span class="n">uz</span> <span class="o">*</span> <span class="n">sint</span>
+
+    <span class="n">ux_uy_om_cost</span> <span class="o">=</span> <span class="n">ux</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">*</span> <span class="n">om_cost</span>
+    <span class="n">ux_uz_om_cost</span> <span class="o">=</span> <span class="n">ux</span> <span class="o">*</span> <span class="n">uz</span> <span class="o">*</span> <span class="n">om_cost</span>
+    <span class="n">uy_uz_om_cost</span> <span class="o">=</span> <span class="n">uy</span> <span class="o">*</span> <span class="n">uz</span> <span class="o">*</span> <span class="n">om_cost</span>
+
+    <span class="n">top_left</span> <span class="o">=</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">ux</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">om_cost</span>
+    <span class="n">top_middle</span> <span class="o">=</span> <span class="n">ux_uy_om_cost</span> <span class="o">-</span> <span class="n">uz_sint</span>
+    <span class="n">top_right</span> <span class="o">=</span> <span class="n">ux_uz_om_cost</span> <span class="o">+</span> <span class="n">uy_sint</span>
+    <span class="n">middle_left</span> <span class="o">=</span> <span class="n">ux_uy_om_cost</span> <span class="o">+</span> <span class="n">uz_sint</span>
+    <span class="n">middle_middle</span> <span class="o">=</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">uy</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">om_cost</span>
+    <span class="n">middle_right</span> <span class="o">=</span> <span class="n">uy_uz_om_cost</span> <span class="o">-</span> <span class="n">ux_sint</span>
+    <span class="n">bottom_left</span> <span class="o">=</span> <span class="n">ux_uz_om_cost</span> <span class="o">-</span> <span class="n">uy_sint</span>
+    <span class="n">bottom_middle</span> <span class="o">=</span> <span class="n">uy_uz_om_cost</span> <span class="o">+</span> <span class="n">ux_sint</span>
+    <span class="n">bottom_right</span> <span class="o">=</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">uz</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">om_cost</span>
+
+    <span class="c1"># BS x 1 x 3</span>
+    <span class="n">top_row</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">top_left</span><span class="p">,</span> <span class="n">top_middle</span><span class="p">,</span> <span class="n">top_right</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">middle_row</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">middle_left</span><span class="p">,</span> <span class="n">middle_middle</span><span class="p">,</span> <span class="n">middle_right</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">bottom_row</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">bottom_left</span><span class="p">,</span> <span class="n">bottom_middle</span><span class="p">,</span> <span class="n">bottom_right</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3 x 3</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">top_row</span><span class="p">,</span> <span class="n">middle_row</span><span class="p">,</span> <span class="n">bottom_row</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="quaternion_to_rot_mat"><a class="viewcode-back" href="../../../orientation/rotation_matrix/quaternion_to_rot_mat.html#ivy_mech.orientation.rotation_matrix.quaternion_to_rot_mat">[docs]</a><span class="k">def</span> <span class="nf">quaternion_to_rot_mat</span><span class="p">(</span><span class="n">quaternion</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert quaternion :math:`\mathbf{q} = [q_i, q_j, q_k, q_r]` to rotation matrix</span>
+<span class="sd">    :math:`\mathbf{R}\in\mathbb{R}^{3×3}`.\n</span>
+<span class="sd">    `[reference] &lt;https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion_to_and_from_the_matrix_representation&gt;`_</span>
+
+<span class="sd">    :param quaternion: Quaternion *[batch_shape,4]*</span>
+<span class="sd">    :type quaternion: array</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation matrix *[batch_shape,3,3]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">quaternion</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 1 x 1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">quaternion</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">quaternion</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">quaternion</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">quaternion</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># BS x 1 x 1</span>
+    <span class="n">top_left</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">top_middle</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">d</span>
+    <span class="n">top_right</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    <span class="n">middle_left</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">d</span>
+    <span class="n">middle_middle</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">middle_right</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">d</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">b</span>
+    <span class="n">bottom_left</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">d</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    <span class="n">bottom_middle</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">b</span>
+    <span class="n">bottom_right</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="c1"># BS x 1 x 3</span>
+    <span class="n">top_row</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">top_left</span><span class="p">,</span> <span class="n">top_middle</span><span class="p">,</span> <span class="n">top_right</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">middle_row</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">middle_left</span><span class="p">,</span> <span class="n">middle_middle</span><span class="p">,</span> <span class="n">middle_right</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">bottom_row</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">bottom_left</span><span class="p">,</span> <span class="n">bottom_middle</span><span class="p">,</span> <span class="n">bottom_right</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3 x 3</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">top_row</span><span class="p">,</span> <span class="n">middle_row</span><span class="p">,</span> <span class="n">bottom_row</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<span class="c1"># Euler Conversions #</span>
+<span class="c1"># ------------------#</span>
+
+<div class="viewcode-block" id="euler_to_rot_mat"><a class="viewcode-back" href="../../../orientation/rotation_matrix/euler_to_rot_mat.html#ivy_mech.orientation.rotation_matrix.euler_to_rot_mat">[docs]</a><span class="k">def</span> <span class="nf">euler_to_rot_mat</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert :math:`zyx` Euler angles :math:`\mathbf{θ}_{abc} = [ϕ_a, ϕ_b, ϕ_c]` to rotation matrix</span>
+<span class="sd">    :math:`\mathbf{R}\in\mathbb{R}^{3×3}`.\n</span>
+<span class="sd">    `[reference] &lt;https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix&gt;`_</span>
+
+<span class="sd">    :param euler_angles: Euler angles *[batch_shape,3]*</span>
+<span class="sd">    :type euler_angles: array</span>
+<span class="sd">    :param convention: The axes for euler rotation, in order of L.H.S. matrix multiplication.</span>
+<span class="sd">    :type convention: str, optional</span>
+<span class="sd">    :param batch_shape: Shape of batch. Inferred from inputs if None.</span>
+<span class="sd">    :type batch_shape: sequence of ints, optional</span>
+<span class="sd">    :param dev: device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. Same as x if None.</span>
+<span class="sd">    :type dev: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation matrix *[batch_shape,3,3]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">batch_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
+    <span class="k">if</span> <span class="n">dev</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_device</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">)</span>
+
+    <span class="c1"># BS x 1 x 1</span>
+    <span class="n">zeros</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">batch_shape</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dev</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">cos_alpha</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">sin_alpha</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+
+    <span class="n">cos_beta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">sin_beta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+
+    <span class="n">cos_gamma</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+    <span class="n">sin_gamma</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3 x 3</span>
+    <span class="n">identity_matrix</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="n">batch_shape</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3 x 3</span>
+    <span class="n">rot_alpha</span> <span class="o">=</span> <span class="n">ROTATION_FUNC_DICT</span><span class="p">[</span><span class="n">convention</span><span class="p">[</span><span class="mi">0</span><span class="p">]](</span><span class="n">identity_matrix</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_alpha</span><span class="p">,</span> <span class="n">cos_alpha</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">rot_beta</span> <span class="o">=</span> <span class="n">ROTATION_FUNC_DICT</span><span class="p">[</span><span class="n">convention</span><span class="p">[</span><span class="mi">1</span><span class="p">]](</span><span class="n">identity_matrix</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_beta</span><span class="p">,</span> <span class="n">cos_beta</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">rot_gamma</span> <span class="o">=</span> <span class="n">ROTATION_FUNC_DICT</span><span class="p">[</span><span class="n">convention</span><span class="p">[</span><span class="mi">2</span><span class="p">]](</span><span class="n">identity_matrix</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">sin_gamma</span><span class="p">,</span> <span class="n">cos_gamma</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">rot_gamma</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">rot_beta</span><span class="p">,</span> <span class="n">rot_alpha</span><span class="p">))</span></div>
+
+
+<span class="c1"># noinspection PyUnresolvedReferences</span>
+<div class="viewcode-block" id="target_facing_rotation_matrix"><a class="viewcode-back" href="../../../orientation/rotation_matrix/target_facing_rotation_matrix.html#ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix">[docs]</a><span class="k">def</span> <span class="nf">target_facing_rotation_matrix</span><span class="p">(</span><span class="n">body_pos</span><span class="p">,</span> <span class="n">target_pos</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine rotation matrix :math:`\mathbf{R}\in\mathbb{R}^{3×3}` of body which corresponds with</span>
+<span class="sd">    it&#39;s positive z axis facing towards a target world co-ordinate :math:`\mathbf{x}_t = [t_x, t_y, t_z]`, given the body</span>
+<span class="sd">    world co-ordinate :math:`\mathbf{x}_b = [b_x, b_y, b_z]`, while assuming world-space positve-z to correspond to up direction.</span>
+<span class="sd">    This is particularly useful for orienting cameras.</span>
+<span class="sd">    `[reference] &lt;https://stackoverflow.com/questions/21830340/understanding-glmlookat&gt;`_</span>
+
+<span class="sd">    :param body_pos: Cartesian position of body *[batch_shape,3]*</span>
+<span class="sd">    :type body_pos: array</span>
+<span class="sd">    :param target_pos: Cartesian position of target *[batch_shape,3]*</span>
+<span class="sd">    :type target_pos: array</span>
+<span class="sd">    :param batch_shape: Shape of batch. Inferred from inputs if None.</span>
+<span class="sd">    :type batch_shape: sequence of ints, optional</span>
+<span class="sd">    :param dev: device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. Same as x if None.</span>
+<span class="sd">    :type dev: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation vector, which faces body towards target *[batch_shape,4]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># ToDo: make this more general, allowing arbitrary view and up axes to be specified</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">body_pos</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">batch_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">body_pos</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">batch_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">batch_shape</span><span class="p">)</span>
+    <span class="n">num_batch_dims</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch_shape</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dev</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_device</span><span class="p">(</span><span class="n">body_pos</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="n">up</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_batch_dims</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">batch_shape</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">target_pos</span> <span class="o">-</span> <span class="n">body_pos</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">z</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">up</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+    <span class="c1"># BS x 1 x 3</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3 x 3</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ivy Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
