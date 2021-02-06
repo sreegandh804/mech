@@ -13,4 +13,6 @@ Euler pose
    :caption: Euler pose
 
    euler_pose/mat_pose_to_euler_pose.rst
+   euler_pose/quaternion_pose_to_euler_pose.rst
+   euler_pose/axis_angle_pose_to_euler_pose.rst
 

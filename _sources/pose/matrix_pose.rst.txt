@@ -15,4 +15,5 @@ Matrix pose
    matrix_pose/quaternion_pose_to_mat_pose.rst
    matrix_pose/euler_pose_to_mat_pose.rst
    matrix_pose/rot_vec_pose_to_mat_pose.rst
+   matrix_pose/axis_angle_pose_to_mat_pose.rst
 

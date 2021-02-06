@@ -173,6 +173,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># global</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">_math</span>
 <span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="k">import</span> <span class="n">get_framework</span> <span class="k">as</span> <span class="n">_get_framework</span>
 
 <span class="c1"># local</span>
@@ -580,6 +581,46 @@
 
     <span class="c1"># BS x 3</span>
     <span class="k">return</span> <span class="n">rot_mat_to_euler</span><span class="p">(</span><span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">quaternion_to_rot_mat</span><span class="p">(</span><span class="n">quaternion</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">),</span> <span class="n">convention</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="axis_angle_to_euler"><a class="viewcode-back" href="../../../orientation/euler_angles/axis_angle_to_euler.html#ivy_mech.orientation.euler_angles.axis_angle_to_euler">[docs]</a><span class="k">def</span> <span class="nf">axis_angle_to_euler</span><span class="p">(</span><span class="n">axis_angle</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert rotation axis unit vector :math:`\mathbf{e} = [e_x, e_y, e_z]` and</span>
+<span class="sd">    rotation angle :math:`θ` to :math:`zyx` Euler angles :math:`\mathbf{θ}_{xyz} = [ϕ_z, ϕ_y, ϕ_x]`.</span>
+
+<span class="sd">    :param axis_angle: Input axis_angle *[batch_shape,4]*</span>
+<span class="sd">    :type axis_angle: array</span>
+<span class="sd">    :param convention: The axes for euler rotation, in order of L.H.S. matrix multiplication.</span>
+<span class="sd">    :type convention: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: zyx Euler angles *[batch_shape,3]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">axis_angle</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="k">return</span> <span class="n">rot_mat_to_euler</span><span class="p">(</span><span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">axis_angle_to_rot_mat</span><span class="p">(</span><span class="n">axis_angle</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">),</span> <span class="n">convention</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_random_euler"><a class="viewcode-back" href="../../../orientation/euler_angles/get_random_euler.html#ivy_mech.orientation.euler_angles.get_random_euler">[docs]</a><span class="k">def</span> <span class="nf">get_random_euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate random :math:`zyx` Euler angles :math:`\mathbf{θ}_{xyz} = [ϕ_z, ϕ_y, ϕ_x]`.</span>
+<span class="sd">    :param f: Machine learning framework.</span>
+<span class="sd">    :type f: ml_framework</span>
+<span class="sd">    :param batch_shape: Shape of batch. Shape of [1] is assumed if None.</span>
+<span class="sd">    :type batch_shape: sequence of ints, optional</span>
+<span class="sd">    :return: Random euler *[batch_shape,3]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;framework f must be specified for calling ivy.get_random_euler()&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">batch_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">batch_shape</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">_math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">batch_shape</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">])</span></div>
 </pre></div>
 
            </div>

@@ -181,6 +181,44 @@
 <span class="n">MIN_DENOMINATOR</span> <span class="o">=</span> <span class="mf">1e-12</span>
 
 
+<div class="viewcode-block" id="rot_mat_to_axis_angle"><a class="viewcode-back" href="../../../orientation/axis_angle/rot_mat_to_axis_angle.html#ivy_mech.orientation.axis_angle.rot_mat_to_axis_angle">[docs]</a><span class="k">def</span> <span class="nf">rot_mat_to_axis_angle</span><span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span>  <span class="n">dev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert rotation matrix :math:`\mathbf{R}\in\mathbb{R}^{3×3}` to rotation axis unit vector</span>
+<span class="sd">    :math:`\mathbf{e} = [e_x, e_y, e_z]` and rotation angle :math:`θ`.</span>
+
+<span class="sd">    :param rot_mat: Rotation matrix *[batch_shape,3,3]*</span>
+<span class="sd">    :type rot_mat: array</span>
+<span class="sd">    :param dev: device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. Same as x if None.</span>
+<span class="sd">    :type dev: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation axis unit vector and angle *[batch_shape,4]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">quat</span> <span class="o">=</span> <span class="n">_ivy_q</span><span class="o">.</span><span class="n">rot_mat_to_quaternion</span><span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">quaternion_to_axis_angle</span><span class="p">(</span><span class="n">quat</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="euler_to_axis_angle"><a class="viewcode-back" href="../../../orientation/axis_angle/euler_to_axis_angle.html#ivy_mech.orientation.axis_angle.euler_to_axis_angle">[docs]</a><span class="k">def</span> <span class="nf">euler_to_axis_angle</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert :math:`zyx` Euler angles :math:`\mathbf{θ}_{abc} = [ϕ_a, ϕ_b, ϕ_c]` to rotation axis unit vector</span>
+<span class="sd">    :math:`\mathbf{e} = [e_x, e_y, e_z]` and rotation angle :math:`θ`.</span>
+
+<span class="sd">    :param euler_angles: Input euler angles *[batch_shape,3]*</span>
+<span class="sd">    :type euler_angles: array</span>
+<span class="sd">    :param convention: The axes for euler rotation, in order of L.H.S. matrix multiplication.</span>
+<span class="sd">    :type convention: str, optional</span>
+<span class="sd">    :param batch_shape: Shape of batch. Inferred from inputs if None.</span>
+<span class="sd">    :type batch_shape: sequence of ints, optional</span>
+<span class="sd">    :param dev: device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. Same as x if None.</span>
+<span class="sd">    :type dev: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation axis unit vector and angle *[batch_shape,4]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">quat</span> <span class="o">=</span> <span class="n">_ivy_q</span><span class="o">.</span><span class="n">euler_to_quaternion</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">,</span> <span class="n">convention</span><span class="p">,</span> <span class="n">batch_shape</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">quaternion_to_axis_angle</span><span class="p">(</span><span class="n">quat</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="quaternion_to_axis_angle"><a class="viewcode-back" href="../../../orientation/axis_angle/quaternion_to_axis_angle.html#ivy_mech.orientation.axis_angle.quaternion_to_axis_angle">[docs]</a><span class="k">def</span> <span class="nf">quaternion_to_axis_angle</span><span class="p">(</span><span class="n">quaternion</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert quaternion :math:`\mathbf{q} = [q_i, q_j, q_k, q_r]` to rotation axis unit vector</span>
@@ -274,6 +312,24 @@
 
     <span class="c1"># BS x 3</span>
     <span class="k">return</span> <span class="n">vector_and_angle</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">vector_and_angle</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span></div>
+
+
+<div class="viewcode-block" id="get_random_axis_angle"><a class="viewcode-back" href="../../../orientation/axis_angle/get_random_axis_angle.html#ivy_mech.orientation.axis_angle.get_random_axis_angle">[docs]</a><span class="k">def</span> <span class="nf">get_random_axis_angle</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate random axis unit vector :math:`\mathbf{e} = [e_x, e_y, e_z]`</span>
+<span class="sd">    and rotation angle :math:`θ`</span>
+<span class="sd">    :param f: Machine learning framework.</span>
+<span class="sd">    :type f: ml_framework</span>
+<span class="sd">    :param batch_shape: Shape of batch. Shape of [1] is assumed if None.</span>
+<span class="sd">    :type batch_shape: sequence of ints, optional</span>
+<span class="sd">    :return: Random rotation axis unit vector and angle *[batch_shape,4]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;framework f must be specified for calling ivy.get_random_euler()&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">quaternion_to_axis_angle</span><span class="p">(</span>
+        <span class="n">_ivy_q</span><span class="o">.</span><span class="n">get_random_quaternion</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="n">batch_shape</span><span class="p">))</span></div>
 </pre></div>
 
            </div>

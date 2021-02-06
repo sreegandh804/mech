@@ -14,4 +14,6 @@ Euler angles
 
    euler_angles/rot_mat_to_euler.rst
    euler_angles/quaternion_to_euler.rst
+   euler_angles/axis_angle_to_euler.rst
+   euler_angles/get_random_euler.rst
 

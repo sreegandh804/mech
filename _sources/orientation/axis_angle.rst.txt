@@ -12,7 +12,10 @@ Axis angle
    :maxdepth: -1
    :caption: Axis angle
 
+   axis_angle/rot_mat_to_axis_angle.rst
+   axis_angle/euler_to_axis_angle.rst
    axis_angle/quaternion_to_axis_angle.rst
    axis_angle/quaternion_to_polar_axis_angle.rst
    axis_angle/quaternion_to_rotation_vector.rst
+   axis_angle/get_random_axis_angle.rst
 

@@ -258,6 +258,28 @@
 
     <span class="c1"># BS x 3 x 4</span>
     <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="axis_angle_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/axis_angle_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.axis_angle_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">axis_angle_pose_to_mat_pose</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert axis-angle pose :math:`\mathbf{p}_{aa} = [\mathbf{x}_c, \mathbf{e}, θ] = [x, y, z, e_x, e_y, e_z, θ]` to</span>
+<span class="sd">    matrix pose :math:`\mathbf{P}\in\mathbb{R}^{3×4}`.</span>
+
+<span class="sd">    :param axis_angle_pose: Quaternion pose *[batch_shape,7]*</span>
+<span class="sd">    :type axis_angle_pose: array</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Matrix pose *[batch_shape,3,4]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3 x 3</span>
+    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">axis_angle_to_rot_mat</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:])</span>
+
+    <span class="c1"># BS x 3 x 4</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

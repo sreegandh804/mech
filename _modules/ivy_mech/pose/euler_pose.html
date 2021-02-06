@@ -205,6 +205,61 @@
 
     <span class="c1"># BS x 6</span>
     <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">translation</span><span class="p">,</span> <span class="n">euler_angles</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<span class="c1"># noinspection PyUnresolvedReferences</span>
+<div class="viewcode-block" id="quaternion_pose_to_euler_pose"><a class="viewcode-back" href="../../../pose/euler_pose/quaternion_pose_to_euler_pose.html#ivy_mech.pose.euler_pose.quaternion_pose_to_euler_pose">[docs]</a><span class="k">def</span> <span class="nf">quaternion_pose_to_euler_pose</span><span class="p">(</span><span class="n">quaternion_pose</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert quaternion pose :math:`\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]`</span>
+<span class="sd">    to :math:`abc` Euler angle pose</span>
+<span class="sd">    :math:`\mathbf{p}_{xyz} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]`.</span>
+
+<span class="sd">    :param quaternion_pose: Quaternion pose *[batch_shape,7]*</span>
+<span class="sd">    :type quaternion_pose: array</span>
+<span class="sd">    :param convention: The axes for euler rotation, in order of L.H.S. matrix multiplication.</span>
+<span class="sd">    :type convention: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Euler pose *[batch_shape,6]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">quaternion_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="n">translation</span> <span class="o">=</span> <span class="n">quaternion_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="n">euler_angles</span> <span class="o">=</span> <span class="n">_ivy_ea</span><span class="o">.</span><span class="n">quaternion_to_euler</span><span class="p">(</span><span class="n">quaternion_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">convention</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 6</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">translation</span><span class="p">,</span> <span class="n">euler_angles</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<span class="c1"># noinspection PyUnresolvedReferences</span>
+<div class="viewcode-block" id="axis_angle_pose_to_euler_pose"><a class="viewcode-back" href="../../../pose/euler_pose/axis_angle_pose_to_euler_pose.html#ivy_mech.pose.euler_pose.axis_angle_pose_to_euler_pose">[docs]</a><span class="k">def</span> <span class="nf">axis_angle_pose_to_euler_pose</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert axis-angle pose :math:`\mathbf{p}_{aa} = [\mathbf{x}_c, \mathbf{e}, θ] = [x, y, z, e_x, e_y, e_z, θ]`</span>
+<span class="sd">     to :math:`abc` Euler angle pose :math:`\mathbf{p}_{xyz} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]`.</span>
+
+<span class="sd">    :param axis_angle_pose: Axis-angle pose *[batch_shape,7]*</span>
+<span class="sd">    :type axis_angle_pose: array</span>
+<span class="sd">    :param convention: The axes for euler rotation, in order of L.H.S. matrix multiplication.</span>
+<span class="sd">    :type convention: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Euler pose *[batch_shape,6]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="n">translation</span> <span class="o">=</span> <span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># BS x 3</span>
+    <span class="n">euler_angles</span> <span class="o">=</span> <span class="n">_ivy_ea</span><span class="o">.</span><span class="n">axis_angle_to_euler</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">convention</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># BS x 6</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">translation</span><span class="p">,</span> <span class="n">euler_angles</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

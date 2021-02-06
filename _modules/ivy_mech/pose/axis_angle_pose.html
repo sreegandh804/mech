@@ -180,6 +180,29 @@
 <span class="kn">from</span> <span class="nn">ivy_mech.orientation</span> <span class="k">import</span> <span class="n">axis_angle</span> <span class="k">as</span> <span class="n">_ivy_aa</span>
 
 
+<div class="viewcode-block" id="euler_pose_to_axis_angle_pose"><a class="viewcode-back" href="../../../pose/axis_angle_pose/euler_pose_to_axis_angle_pose.html#ivy_mech.pose.axis_angle_pose.euler_pose_to_axis_angle_pose">[docs]</a><span class="k">def</span> <span class="nf">euler_pose_to_axis_angle_pose</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert :math: Euler angle pose</span>
+<span class="sd">    :math:`\mathbf{p}_{abc} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]` to</span>
+<span class="sd">    axis-angle pose :math:`\mathbf{p}_{aa} = [\mathbf{x}_c, \mathbf{e}, θ] = [x, y, z, e_x, e_y, e_z, θ]`</span>
+
+<span class="sd">    :param euler_pose: Euler angle pose *[batch_shape,6]*</span>
+<span class="sd">    :type euler_pose: array</span>
+<span class="sd">    :param convention: The axes for euler rotation, in order of L.H.S. matrix multiplication.</span>
+<span class="sd">    :type convention: str, optional</span>
+<span class="sd">    :param batch_shape: Shape of batch. Inferred from inputs if None.</span>
+<span class="sd">    :type batch_shape: sequence of ints, optional</span>
+<span class="sd">    :param dev: device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. Same as x if None.</span>
+<span class="sd">    :type dev: str, optional</span>
+<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
+<span class="sd">    :type f: ml_framework, optional</span>
+<span class="sd">    :return: Rotation axis unit vector and angle *[batch_shape,4]*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">aa</span> <span class="o">=</span> <span class="n">_ivy_aa</span><span class="o">.</span><span class="n">euler_to_axis_angle</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">convention</span><span class="p">,</span> <span class="n">batch_shape</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">euler_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">aa</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
 <span class="c1"># noinspection PyUnresolvedReferences</span>
 <div class="viewcode-block" id="mat_pose_to_rot_vec_pose"><a class="viewcode-back" href="../../../pose/axis_angle_pose/mat_pose_to_rot_vec_pose.html#ivy_mech.pose.axis_angle_pose.mat_pose_to_rot_vec_pose">[docs]</a><span class="k">def</span> <span class="nf">mat_pose_to_rot_vec_pose</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>

@@ -12,6 +12,7 @@ Quaternion pose
    :maxdepth: -1
    :caption: Quaternion pose
 
+   quaternion_pose/axis_angle_pose_to_quaternion_pose.rst
    quaternion_pose/mat_pose_to_quaternion_pose.rst
    quaternion_pose/euler_pose_to_quaternion_pose.rst
    quaternion_pose/increment_quaternion_pose_with_velocity.rst
