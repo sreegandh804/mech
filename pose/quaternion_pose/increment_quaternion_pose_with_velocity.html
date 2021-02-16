@@ -112,6 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../mech"">Ivy Mech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../vision"">Ivy Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../robot"">Ivy Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../memory"">Ivy Memory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gym"">Ivy Gym</a></li>
 </ul>
 
@@ -183,7 +184,7 @@
 <h1>increment_quaternion_pose_with_velocity<a class="headerlink" href="#increment-quaternion-pose-with-velocity" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.pose.quaternion_pose.increment_quaternion_pose_with_velocity">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">increment_quaternion_pose_with_velocity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quat_pose</span></em>, <em class="sig-param"><span class="n">quat_vel</span></em>, <em class="sig-param"><span class="n">delta_t</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/pose/quaternion_pose.html#increment_quaternion_pose_with_velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.increment_quaternion_pose_with_velocity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">increment_quaternion_pose_with_velocity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quat_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quat_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/pose/quaternion_pose.html#increment_quaternion_pose_with_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.increment_quaternion_pose_with_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increment a quaternion pose <span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>
 forward by one time-increment <span class="math notranslate nohighlight">\(Δt\)</span>, given the velocity represented in quaternion form <span class="math notranslate nohighlight">\(\mathbf{V}_q\)</span>.
 Where <span class="math notranslate nohighlight">\(\mathbf{P}_q (t+1) = \mathbf{P}_q(t) × \mathbf{V}_q\)</span>, <span class="math notranslate nohighlight">\(t\)</span> is in seconds, and <span class="math notranslate nohighlight">\(×\)</span> denotes
