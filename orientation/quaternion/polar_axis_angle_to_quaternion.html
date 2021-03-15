@@ -189,17 +189,14 @@
 <h1>polar_axis_angle_to_quaternion<a class="headerlink" href="#polar-axis-angle-to-quaternion" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">polar_axis_angle_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polar_axis_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/quaternion.html#polar_axis_angle_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">polar_axis_angle_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polar_axis_angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/quaternion.html#polar_axis_angle_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert polar axis-angle representation, which constitutes the elevation and azimuth angles of the axis as well
 as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{paa} = [ϕ_e, ϕ_a, θ]\)</span>, to quaternion form
 <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation">[reference]</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>polar_axis_angle</strong> (<em>array</em>) – Polar axis angle representation <em>[batch_shape,3]</em></p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>polar_axis_angle</strong> (<em>array</em>) – Polar axis angle representation <em>[batch_shape,3]</em></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>

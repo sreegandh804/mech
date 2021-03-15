@@ -173,13 +173,12 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># global</span>
-<span class="kn">import</span> <span class="nn">ivy</span>
-<span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="k">import</span> <span class="n">get_framework</span> <span class="k">as</span> <span class="n">_get_framework</span>
+<span class="kn">import</span> <span class="nn">ivy</span> <span class="k">as</span> <span class="nn">_ivy</span>
 
 <span class="n">MIN_DENOMINATOR</span> <span class="o">=</span> <span class="mf">1e-12</span>
 
 
-<div class="viewcode-block" id="polar_to_cartesian_coords"><a class="viewcode-back" href="../../../position/coordinate_conversions/polar_to_cartesian_coords.html#ivy_mech.position.coordinate_conversions.polar_to_cartesian_coords">[docs]</a><span class="k">def</span> <span class="nf">polar_to_cartesian_coords</span><span class="p">(</span><span class="n">polar_coords</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="polar_to_cartesian_coords"><a class="viewcode-back" href="../../../position/coordinate_conversions/polar_to_cartesian_coords.html#ivy_mech.position.coordinate_conversions.polar_to_cartesian_coords">[docs]</a><span class="k">def</span> <span class="nf">polar_to_cartesian_coords</span><span class="p">(</span><span class="n">polar_coords</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert spherical polar co-ordinates :math:`\mathbf{x}_p = [r, α, β]` to cartesian co-ordinates</span>
 <span class="sd">    :math:`\mathbf{x}_c = [x, y, z]`.\n</span>
@@ -187,27 +186,23 @@
 
 <span class="sd">    :param polar_coords: Spherical polar co-ordinates *[batch_shape,3]*</span>
 <span class="sd">    :type polar_coords: array</span>
-<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
-<span class="sd">    :type f: ml_framework, optional</span>
 <span class="sd">    :return: Cartesian co-ordinates *[batch_shape,3]*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">polar_coords</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 
     <span class="c1"># BS x 1</span>
     <span class="n">phi</span> <span class="o">=</span> <span class="n">polar_coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">theta</span> <span class="o">=</span> <span class="n">polar_coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">polar_coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span> <span class="o">*</span> <span class="n">ivy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span> <span class="o">*</span> <span class="n">ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">ivy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
     <span class="c1"># BS x 3</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="cartesian_to_polar_coords"><a class="viewcode-back" href="../../../position/coordinate_conversions/cartesian_to_polar_coords.html#ivy_mech.position.coordinate_conversions.cartesian_to_polar_coords">[docs]</a><span class="k">def</span> <span class="nf">cartesian_to_polar_coords</span><span class="p">(</span><span class="n">cartesian_coords</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="cartesian_to_polar_coords"><a class="viewcode-back" href="../../../position/coordinate_conversions/cartesian_to_polar_coords.html#ivy_mech.position.coordinate_conversions.cartesian_to_polar_coords">[docs]</a><span class="k">def</span> <span class="nf">cartesian_to_polar_coords</span><span class="p">(</span><span class="n">cartesian_coords</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert cartesian co-ordinates :math:`\mathbf{x}_c = [x, y, z]` to spherical polar co-ordinates</span>
 <span class="sd">    :math:`\mathbf{x}_p = [r, α, β]`.\n</span>
@@ -215,12 +210,8 @@
 
 <span class="sd">    :param cartesian_coords: Cartesian co-ordinates *[batch_shape,3]*</span>
 <span class="sd">    :type cartesian_coords: array</span>
-<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
-<span class="sd">    :type f: ml_framework, optional</span>
 <span class="sd">    :return: Spherical polar co-ordinates *[batch_shape,3]*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">cartesian_coords</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 
     <span class="c1"># BS x 1</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">cartesian_coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
@@ -228,11 +219,11 @@
     <span class="n">z</span> <span class="o">=</span> <span class="n">cartesian_coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 
     <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="n">phi</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">MIN_DENOMINATOR</span><span class="p">),</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">MIN_DENOMINATOR</span><span class="p">))</span>
 
     <span class="c1"># BS x 3</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">phi</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

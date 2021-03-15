@@ -173,15 +173,14 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># global</span>
-<span class="kn">import</span> <span class="nn">ivy</span>
-<span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="k">import</span> <span class="n">get_framework</span> <span class="k">as</span> <span class="n">_get_framework</span>
+<span class="kn">import</span> <span class="nn">ivy</span> <span class="k">as</span> <span class="nn">_ivy</span>
 
 <span class="c1"># local</span>
 <span class="kn">from</span> <span class="nn">ivy_mech.orientation</span> <span class="k">import</span> <span class="n">rotation_matrix</span> <span class="k">as</span> <span class="n">_ivy_rot_mat</span>
 <span class="kn">from</span> <span class="nn">ivy_mech.orientation</span> <span class="k">import</span> <span class="n">quaternion</span> <span class="k">as</span> <span class="n">_ivy_quat</span>
 
 
-<div class="viewcode-block" id="quaternion_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/quaternion_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.quaternion_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">quaternion_pose_to_mat_pose</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="quaternion_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/quaternion_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.quaternion_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">quaternion_pose_to_mat_pose</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert quaternion pose :math:`\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]` to</span>
 <span class="sd">    matrix pose :math:`\mathbf{P}\in\mathbb{R}^{3×4}`.\n</span>
@@ -189,24 +188,20 @@
 
 <span class="sd">    :param quat_pose: Quaternion pose *[batch_shape,7]*</span>
 <span class="sd">    :type quat_pose: array</span>
-<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
-<span class="sd">    :type f: ml_framework, optional</span>
 <span class="sd">    :return: Matrix pose *[batch_shape,3,4]*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-
     <span class="c1"># BS x 3 x 3</span>
-    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">quaternion_to_rot_mat</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">quaternion_to_rot_mat</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:])</span>
 
     <span class="c1"># BS x 3 x 1</span>
-    <span class="n">rhs</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">rhs</span> <span class="o">=</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">quat_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="c1"># BS x 3 x 4</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">rhs</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">rhs</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="euler_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/euler_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.euler_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">euler_pose_to_mat_pose</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="euler_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/euler_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.euler_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">euler_pose_to_mat_pose</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">,</span> <span class="n">convention</span><span class="o">=</span><span class="s1">&#39;zyx&#39;</span><span class="p">,</span> <span class="n">batch_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert :math: Euler angle pose</span>
 <span class="sd">    :math:`\mathbf{p}_{abc} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]` to matrix pose</span>
@@ -219,24 +214,20 @@
 <span class="sd">    :type convention: str, optional</span>
 <span class="sd">    :param batch_shape: Shape of batch. Inferred from inputs if None.</span>
 <span class="sd">    :type batch_shape: sequence of ints, optional</span>
-<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
-<span class="sd">    :type f: ml_framework, optional</span>
 <span class="sd">    :return: Matrix pose *[batch_shape,3,4]*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">batch_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">batch_shape</span> <span class="o">=</span> <span class="n">euler_pose</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="c1"># BS x 3 x 3</span>
-    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">euler_to_rot_mat</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">convention</span><span class="p">,</span> <span class="n">batch_shape</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">euler_to_rot_mat</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">convention</span><span class="p">,</span> <span class="n">batch_shape</span><span class="p">)</span>
 
     <span class="c1"># BS x 3 x 4</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">euler_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="rot_vec_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/rot_vec_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.rot_vec_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">rot_vec_pose_to_mat_pose</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="rot_vec_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/rot_vec_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.rot_vec_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">rot_vec_pose_to_mat_pose</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert rotation vector pose :math:`\mathbf{p}_{rv} = [\mathbf{x}_c, \mathbf{θ}_{rv}] = [x, y, z, θe_x, θe_y, θe_z]`</span>
 <span class="sd">    to matrix pose :math:`\mathbf{P}\in\mathbb{R}^{3×4}`.\n</span>
@@ -244,43 +235,35 @@
 
 <span class="sd">    :param rot_vec_pose: Rotation vector pose *[batch_shape,6]*</span>
 <span class="sd">    :type rot_vec_pose: array</span>
-<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
-<span class="sd">    :type f: ml_framework, optional</span>
 <span class="sd">    :return: Matrix pose *[batch_shape,3,4]*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-
     <span class="c1"># BS x 4</span>
-    <span class="n">quaternion</span> <span class="o">=</span> <span class="n">_ivy_quat</span><span class="o">.</span><span class="n">rotation_vector_to_quaternion</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:],</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">quaternion</span> <span class="o">=</span> <span class="n">_ivy_quat</span><span class="o">.</span><span class="n">rotation_vector_to_quaternion</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:])</span>
 
     <span class="c1"># BS x 3 x 3</span>
-    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">quaternion_to_rot_mat</span><span class="p">(</span><span class="n">quaternion</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">quaternion_to_rot_mat</span><span class="p">(</span><span class="n">quaternion</span><span class="p">)</span>
 
     <span class="c1"># BS x 3 x 4</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="axis_angle_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/axis_angle_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.axis_angle_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">axis_angle_pose_to_mat_pose</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="axis_angle_pose_to_mat_pose"><a class="viewcode-back" href="../../../pose/matrix_pose/axis_angle_pose_to_mat_pose.html#ivy_mech.pose.matrix_pose.axis_angle_pose_to_mat_pose">[docs]</a><span class="k">def</span> <span class="nf">axis_angle_pose_to_mat_pose</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert axis-angle pose :math:`\mathbf{p}_{aa} = [\mathbf{x}_c, \mathbf{e}, θ] = [x, y, z, e_x, e_y, e_z, θ]` to</span>
 <span class="sd">    matrix pose :math:`\mathbf{P}\in\mathbb{R}^{3×4}`.</span>
 
 <span class="sd">    :param axis_angle_pose: Quaternion pose *[batch_shape,7]*</span>
 <span class="sd">    :type axis_angle_pose: array</span>
-<span class="sd">    :param f: Machine learning framework. Inferred from inputs if None.</span>
-<span class="sd">    :type f: ml_framework, optional</span>
 <span class="sd">    :return: Matrix pose *[batch_shape,3,4]*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">f</span> <span class="o">=</span> <span class="n">_get_framework</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 
     <span class="c1"># BS x 3 x 3</span>
     <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">_ivy_rot_mat</span><span class="o">.</span><span class="n">axis_angle_to_rot_mat</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">:])</span>
 
     <span class="c1"># BS x 3 x 4</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
-        <span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">rot_mat</span><span class="p">,</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">axis_angle_pose</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

@@ -184,7 +184,7 @@
 <h1>euler_pose_to_mat_pose<a class="headerlink" href="#euler-pose-to-mat-pose" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.pose.matrix_pose.euler_pose_to_mat_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">euler_pose_to_mat_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">euler_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/pose/matrix_pose.html#euler_pose_to_mat_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.matrix_pose.euler_pose_to_mat_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">euler_pose_to_mat_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">euler_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/pose/matrix_pose.html#euler_pose_to_mat_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.matrix_pose.euler_pose_to_mat_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert :math: Euler angle pose
 <span class="math notranslate nohighlight">\(\mathbf{p}_{abc} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]\)</span> to matrix pose
 <span class="math notranslate nohighlight">\(\mathbf{P}\in\mathbb{R}^{3×4}\)</span>.</p>
@@ -195,7 +195,6 @@
 <li><p><strong>euler_pose</strong> (<em>array</em>) – Euler angle pose <em>[batch_shape,6]</em></p></li>
 <li><p><strong>convention</strong> (<em>str</em><em>, </em><em>optional</em>) – The axes for euler rotation, in order of L.H.S. matrix multiplication.</p></li>
 <li><p><strong>batch_shape</strong> (<em>sequence of ints</em><em>, </em><em>optional</em>) – Shape of batch. Inferred from inputs if None.</p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

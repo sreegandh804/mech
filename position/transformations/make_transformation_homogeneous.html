@@ -181,15 +181,14 @@
 <h1>make_transformation_homogeneous<a class="headerlink" href="#make-transformation-homogeneous" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.position.transformations.make_transformation_homogeneous">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">make_transformation_homogeneous</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/position/transformations.html#make_transformation_homogeneous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.position.transformations.make_transformation_homogeneous" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">make_transformation_homogeneous</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/position/transformations.html#make_transformation_homogeneous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.position.transformations.make_transformation_homogeneous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append to set of 3x4 non-homogeneous matrices to make them homogeneous.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrices</strong> (<em>array</em>) – set of 3x4 non-homogeneous matrices <em>[batch_shape,3,4]</em></p></li>
 <li><p><strong>batch_shape</strong> (<em>sequence of ints</em><em>, </em><em>optional</em>) – Shape of batch. Inferred from inputs if None.</p></li>
-<li><p><strong>dev</strong> (<em>str</em><em>, </em><em>optional</em>) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. Same as x if None.</p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
+<li><p><strong>dev_str</strong> (<em>str</em><em>, </em><em>optional</em>) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. Same as x if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

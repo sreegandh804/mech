@@ -182,7 +182,7 @@
 <p>Collection of Pose Conversion Functions to Euler Pose Format</p>
 <dl class="py function">
 <dt id="ivy_mech.pose.euler_pose.mat_pose_to_euler_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">mat_pose_to_euler_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/euler_pose.html#mat_pose_to_euler_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.euler_pose.mat_pose_to_euler_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">mat_pose_to_euler_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/euler_pose.html#mat_pose_to_euler_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.euler_pose.mat_pose_to_euler_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert matrix pose <span class="math notranslate nohighlight">\(\mathbf{P}\in\mathbb{R}^{3×4}\)</span> to <span class="math notranslate nohighlight">\(abc\)</span> Euler angle pose
 <span class="math notranslate nohighlight">\(\mathbf{p}_{xyz} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]\)</span>.</p>
 <p><a class="reference external" href="https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2012/07/euler-angles1.pdf">[reference]</a></p>
@@ -191,7 +191,6 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrix</strong> (<em>array</em>) – Matrix pose <em>[batch_shape,3,4]</em></p></li>
 <li><p><strong>convention</strong> (<em>str</em><em>, </em><em>optional</em>) – The axes for euler rotation, in order of L.H.S. matrix multiplication.</p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -202,7 +201,7 @@
 
 <dl class="py function">
 <dt id="ivy_mech.pose.euler_pose.quaternion_pose_to_euler_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">quaternion_pose_to_euler_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/euler_pose.html#quaternion_pose_to_euler_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.euler_pose.quaternion_pose_to_euler_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">quaternion_pose_to_euler_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/euler_pose.html#quaternion_pose_to_euler_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.euler_pose.quaternion_pose_to_euler_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert quaternion pose <span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>
 to <span class="math notranslate nohighlight">\(abc\)</span> Euler angle pose
 <span class="math notranslate nohighlight">\(\mathbf{p}_{xyz} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]\)</span>.</p>
@@ -211,7 +210,6 @@ to <span class="math notranslate nohighlight">\(abc\)</span> Euler angle pose
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>quaternion_pose</strong> (<em>array</em>) – Quaternion pose <em>[batch_shape,7]</em></p></li>
 <li><p><strong>convention</strong> (<em>str</em><em>, </em><em>optional</em>) – The axes for euler rotation, in order of L.H.S. matrix multiplication.</p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -222,7 +220,7 @@ to <span class="math notranslate nohighlight">\(abc\)</span> Euler angle pose
 
 <dl class="py function">
 <dt id="ivy_mech.pose.euler_pose.axis_angle_pose_to_euler_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">axis_angle_pose_to_euler_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_angle_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/euler_pose.html#axis_angle_pose_to_euler_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.euler_pose.axis_angle_pose_to_euler_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">axis_angle_pose_to_euler_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_angle_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/euler_pose.html#axis_angle_pose_to_euler_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.euler_pose.axis_angle_pose_to_euler_pose" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Convert axis-angle pose <span class="math notranslate nohighlight">\(\mathbf{p}_{aa} = [\mathbf{x}_c, \mathbf{e}, θ] = [x, y, z, e_x, e_y, e_z, θ]\)</span></dt><dd><p>to <span class="math notranslate nohighlight">\(abc\)</span> Euler angle pose <span class="math notranslate nohighlight">\(\mathbf{p}_{xyz} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]\)</span>.</p>
 </dd>
@@ -232,7 +230,6 @@ to <span class="math notranslate nohighlight">\(abc\)</span> Euler angle pose
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>axis_angle_pose</strong> (<em>array</em>) – Axis-angle pose <em>[batch_shape,7]</em></p></li>
 <li><p><strong>convention</strong> (<em>str</em><em>, </em><em>optional</em>) – The axes for euler rotation, in order of L.H.S. matrix multiplication.</p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

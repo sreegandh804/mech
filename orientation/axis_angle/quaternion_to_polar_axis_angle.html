@@ -186,7 +186,7 @@
 <h1>quaternion_to_polar_axis_angle<a class="headerlink" href="#quaternion-to-polar-axis-angle" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.orientation.axis_angle.quaternion_to_polar_axis_angle">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">quaternion_to_polar_axis_angle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/axis_angle.html#quaternion_to_polar_axis_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.axis_angle.quaternion_to_polar_axis_angle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">quaternion_to_polar_axis_angle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/axis_angle.html#quaternion_to_polar_axis_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.axis_angle.quaternion_to_polar_axis_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert quaternion <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span> to a polar axis angle representation, which
 constitutes the elevation and azimuth angles of the axis, as well as the rotation angle
 <span class="math notranslate nohighlight">\(\mathbf{θ}_{paa} = [ϕ_e, ϕ_a, θ]\)</span>.</p>
@@ -195,8 +195,7 @@ constitutes the elevation and azimuth angles of the axis, as well as the rotatio
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>quaternion</strong> (<em>array</em>) – Input quaternion <em>[batch_shape,4]</em></p></li>
-<li><p><strong>dev</strong> (<em>str</em><em>, </em><em>optional</em>) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. Same as x if None.</p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
+<li><p><strong>dev_str</strong> (<em>str</em><em>, </em><em>optional</em>) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. Same as x if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -189,7 +189,7 @@
 <h1>hamilton_product<a class="headerlink" href="#hamilton-product" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.hamilton_product">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">hamilton_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quaternion2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/quaternion.html#hamilton_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.hamilton_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">hamilton_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quaternion2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/quaternion.html#hamilton_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.hamilton_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute hamilton product <span class="math notranslate nohighlight">\(\mathbf{h}_p = \mathbf{q}_1 × \mathbf{q}_2\)</span> between
 <span class="math notranslate nohighlight">\(\mathbf{q}_1 = [q_{1i}, q_{1j}, q_{1k}, q_{1r}]\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{q}_2 = [q_{2i}, q_{2j}, q_{2k}, q_{2r}]\)</span>.</p>
@@ -199,7 +199,6 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>quaternion1</strong> (<em>array</em>) – Quaternion 1 <em>[batch_shape,4]</em></p></li>
 <li><p><strong>quaternion2</strong> (<em>array</em>) – Quaternion 2 <em>[batch_shape,4]</em></p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

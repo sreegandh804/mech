@@ -184,16 +184,13 @@
 <h1>mat_pose_to_quaternion_pose<a class="headerlink" href="#mat-pose-to-quaternion-pose" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">mat_pose_to_quaternion_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/pose/quaternion_pose.html#mat_pose_to_quaternion_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">mat_pose_to_quaternion_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/pose/quaternion_pose.html#mat_pose_to_quaternion_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert matrix pose <span class="math notranslate nohighlight">\(\mathbf{P}\in\mathbb{R}^{3×4}\)</span> to quaternion pose
 <span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>.</p>
 <p><a class="reference external" href="http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/">[reference]</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>matrix</strong> (<em>array</em>) – Matrix pose <em>[batch_shape,3,4]</em></p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>array</em>) – Matrix pose <em>[batch_shape,3,4]</em></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Quaternion pose <em>[batch_shape,7]</em></p>

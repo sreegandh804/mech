@@ -188,15 +188,12 @@
 <h1>inverse_quaternion<a class="headerlink" href="#inverse-quaternion" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.inverse_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">inverse_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/quaternion.html#inverse_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.inverse_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">inverse_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/quaternion.html#inverse_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.inverse_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute inverse quaternion :math:<a href="#id1"><span class="problematic" id="id2">`</span></a>mathbf{q}^{-1}.</p>
 <p><a class="reference external" href="https://github.com/KieranWynn/pyquaternion/blob/446c31cba66b708e8480871e70b06415c3cb3b0f/pyquaternion/quaternion.py#L473">[reference]</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p></li>
-<li><p><strong>f</strong> (<em>ml_framework</em><em>, </em><em>optional</em>) – Machine learning framework. Inferred from inputs if None.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Inverse quaternion <em>[batch_shape,4]</em></p>
