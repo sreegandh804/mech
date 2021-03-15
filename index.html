@@ -272,10 +272,12 @@ and read the “Run Through” section below which explains this script.</p>
 <h1>Run Through<a class="headerlink" href="#run-through" title="Permalink to this headline">¶</a></h1>
 <p>We run through some of the different parts of the library via a simple ongoing example script.
 The full script is available in the <a class="reference external" href="https://github.com/ivy-dl/mech/tree/master/demos">demos</a> folder, as file <code class="docutils literal notranslate"><span class="pre">run_through.py</span></code>.
-First, we select a random backend framework <code class="docutils literal notranslate"><span class="pre">f</span></code> to use for the examples, from the options
-<code class="docutils literal notranslate"><span class="pre">ivy.jax</span></code>, <code class="docutils literal notranslate"><span class="pre">ivy.tensorflow</span></code>, <code class="docutils literal notranslate"><span class="pre">ivy.torch</span></code>, <code class="docutils literal notranslate"><span class="pre">ivy.mxnd</span></code> or <code class="docutils literal notranslate"><span class="pre">ivy.numpy</span></code>.</p>
+First, we select a random backend framework to use for the examples, from the options
+<code class="docutils literal notranslate"><span class="pre">ivy.jax</span></code>, <code class="docutils literal notranslate"><span class="pre">ivy.tensorflow</span></code>, <code class="docutils literal notranslate"><span class="pre">ivy.torch</span></code>, <code class="docutils literal notranslate"><span class="pre">ivy.mxnd</span></code> or <code class="docutils literal notranslate"><span class="pre">ivy.numpy</span></code>,
+and use this to set the ivy backend framework.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ivy_demo_utils.framework_utils</span> <span class="kn">import</span> <span class="n">choose_random_framework</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">choose_random_framework</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">ivy.framework_handler</span> <span class="kn">import</span> <span class="n">set_framework</span>
+<span class="n">set_framework</span><span class="p">(</span><span class="n">choose_random_framework</span><span class="p">())</span>
 </pre></div>
 </div>
 <p><strong>Orientation Module</strong></p>
@@ -285,7 +287,7 @@ rotation matrices, rotation vectors, and axis-angle representations.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># rotation representations</span>
 
 <span class="c1"># 3</span>
-<span class="n">rot_vec</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+<span class="n">rot_vec</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
 
 <span class="c1"># 3 x 3</span>
 <span class="n">rot_mat</span> <span class="o">=</span> <span class="n">ivy_mech</span><span class="o">.</span><span class="n">rot_vec_to_rot_mat</span><span class="p">(</span><span class="n">rot_vec</span><span class="p">)</span>
@@ -309,10 +311,10 @@ represent the cartesian position. Again, we give some examples below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># pose representations</span>
 
 <span class="c1"># 3</span>
-<span class="n">position</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">rot_vec</span><span class="p">)</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">rot_vec</span><span class="p">)</span>
 
 <span class="c1"># 6</span>
-<span class="n">rot_vec_pose</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">position</span><span class="p">,</span> <span class="n">rot_vec</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">rot_vec_pose</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">position</span><span class="p">,</span> <span class="n">rot_vec</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># 3 x 4</span>
 <span class="n">mat_pose</span> <span class="o">=</span> <span class="n">ivy_mech</span><span class="o">.</span><span class="n">rot_vec_pose_to_mat_pose</span><span class="p">(</span><span class="n">rot_vec_pose</span><span class="p">)</span>
@@ -335,7 +337,7 @@ and for applying frame-of-reference transformations to cartesian co-ordinates.</
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># conversions of positional representation</span>
 
 <span class="c1"># 3</span>
-<span class="n">cartesian_coord</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
+<span class="n">cartesian_coord</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
 
 <span class="c1"># 3</span>
 <span class="n">polar_coord</span> <span class="o">=</span> <span class="n">ivy_mech</span><span class="o">.</span><span class="n">cartesian_to_polar_coords</span><span class="p">(</span>
@@ -350,15 +352,15 @@ and for applying frame-of-reference transformations to cartesian co-ordinates.</
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># cartesian co-ordinate frame-of-reference transformations</span>
 
 <span class="c1"># 3 x 4</span>
-<span class="n">trans_mat</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">trans_mat</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
 <span class="c1"># 4</span>
 <span class="n">cartesian_coord_homo</span> <span class="o">=</span> <span class="n">ivy_mech</span><span class="o">.</span><span class="n">make_coordinates_homogeneous</span><span class="p">(</span>
     <span class="n">cartesian_coord</span><span class="p">)</span>
 
 <span class="c1"># 3</span>
-<span class="n">trans_cartesian_coord</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-    <span class="n">trans_mat</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">cartesian_coord_homo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">trans_cartesian_coord</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">trans_mat</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">cartesian_coord_homo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[:,</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># 4</span>
 <span class="n">trans_cartesian_coord_homo</span> <span class="o">=</span> <span class="n">ivy_mech</span><span class="o">.</span><span class="n">make_coordinates_homogeneous</span><span class="p">(</span>
@@ -369,11 +371,11 @@ and for applying frame-of-reference transformations to cartesian co-ordinates.</
     <span class="n">trans_mat</span><span class="p">)</span>
 
 <span class="c1"># 3 x 4</span>
-<span class="n">inv_trans_mat</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">trans_mat_homo</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">inv_trans_mat</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">trans_mat_homo</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 
 <span class="c1"># 3</span>
-<span class="n">cartesian_coord_again</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-    <span class="n">inv_trans_mat</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">trans_cartesian_coord_homo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">cartesian_coord_again</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">inv_trans_mat</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">trans_cartesian_coord_homo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[:,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
