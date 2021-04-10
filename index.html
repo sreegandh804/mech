@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Contents &mdash; Ivy Mech 1.0 documentation</title>
@@ -79,26 +80,26 @@
               
             
             
-              <p class="caption"><span class="caption-text">Orientation</span></p>
+              <p><span class="caption-text">Orientation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="orientation/axis_angle.html">Axis angle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="orientation/euler_angles.html">Euler angles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="orientation/quaternion.html">Quaternion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="orientation/rotation_matrix.html">Rotation matrix</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Pose</span></p>
+<p><span class="caption-text">Pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pose/axis_angle_pose.html">Axis angle pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pose/euler_pose.html">Euler pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pose/matrix_pose.html">Matrix pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pose/quaternion_pose.html">Quaternion pose</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Position</span></p>
+<p><span class="caption-text">Position</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="position/coordinate_conversions.html">Coordinate conversions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="position/transformations.html">Transformations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Docs</span></p>
+<p><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mech"">Ivy Mech</a></li>
@@ -178,14 +179,11 @@
 <a href="https://pypi.org/project/ivy-mech">
     <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://badge.fury.io/py/ivy-mech.svg">
 </a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0">
-    <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/pypi/l/ivy-mech">
-</a>
 <a href="https://github.com/ivy-dl/mech/actions?query=workflow%3Adocs">
     <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/github/workflow/status/ivy-dl/mech/docs?label=docs">
 </a>
 <a href="https://github.com/ivy-dl/mech/actions?query=workflow%3Anightly-tests">
-    <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/github/workflow/status/ivy-dl/mech/nightly-tests?label=nightly">
+    <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/github/workflow/status/ivy-dl/mech/nightly-tests?label=tests">
 </a>
 <a href="https://discord.gg/EN9YS3QW8w">
     <img style="float: left; padding-right: 4px; padding-bottom: 4px;" src="https://img.shields.io/discord/799879767196958751?color=blue&label=%20&logo=discord&logoColor=white">
@@ -212,7 +210,7 @@
     <a href="https://numpy.org">
         <img width="12%" style="float: left;" src="https://raw.githubusercontent.com/ivy-dl/ivy-dl.github.io/master/img/externally_linked/logos/supported/numpy_logo.png">
     </a>
-</div><div class="section" id="contents">
+</div><section id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview">Overview</a></p></li>
@@ -220,8 +218,8 @@
 <li><p><a class="reference internal" href="#interactive-demos">Interactive Demos</a></p></li>
 <li><p><a class="reference internal" href="#get-involed">Get Involed</a></p></li>
 </ul>
-</div>
-<div class="section" id="overview">
+</section>
+<section id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <p><strong>What is Ivy Mechanics?</strong></p>
 <p>Ivy mechanics provides functions for conversions of orientation, pose, and positional representations,
@@ -264,8 +262,8 @@ We suggest you start by running the script <code class="docutils literal notrans
 and read the “Run Through” section below which explains this script.</p>
 <p>For more interactive demos, we suggest you run either
 <code class="docutils literal notranslate"><span class="pre">target_facing_rotation_matrix.py</span></code> or <code class="docutils literal notranslate"><span class="pre">polar_to_cartesian_coords.py</span></code> in the <a class="reference external" href="https://github.com/ivy-dl/mech/tree/master/demos/interactive">interactive</a> demos folder.</p>
-</div>
-<div class="section" id="run-through">
+</section>
+<section id="run-through">
 <h1>Run Through<a class="headerlink" href="#run-through" title="Permalink to this headline">¶</a></h1>
 <p>We run through some of the different parts of the library via a simple ongoing example script.
 The full script is available in the <a class="reference external" href="https://github.com/ivy-dl/mech/tree/master/demos">demos</a> folder, as file <code class="docutils literal notranslate"><span class="pre">run_through.py</span></code>.
@@ -375,8 +373,8 @@ and for applying frame-of-reference transformations to cartesian co-ordinates.</
     <span class="n">inv_trans_mat</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">trans_cartesian_coord_homo</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[:,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="interactive-demos">
+</section>
+<section id="interactive-demos">
 <h1>Interactive Demos<a class="headerlink" href="#interactive-demos" title="Permalink to this headline">¶</a></h1>
 <p>In addition to the run through above, we provide two further demo scripts,
 which are more visual and interactive, and are each built around a particular function.</p>
@@ -393,8 +391,8 @@ acquired from an omni-directional camera into cartesian co-ordinates,
 enabling the surrounding geometry to be represented as a point cloud, for interactive visualization.</p>
 <p align="center">
     <img width="75%" style="display: block;" src='https://github.com/ivy-dl/ivy-dl.github.io/blob/master/img/externally_linked/ivy_mech/demo_b.gif?raw=true'>
-</p></div>
-<div class="section" id="get-involed">
+</p></section>
+<section id="get-involed">
 <h1>Get Involed<a class="headerlink" href="#get-involed" title="Permalink to this headline">¶</a></h1>
 <p>We hope the functions in this library are useful to a wide range of deep learning developers.
 However, there are many more areas of mechanics which could be covered by this library.</p>
@@ -402,8 +400,8 @@ However, there are many more areas of mechanics which could be covered by this l
 and your needs are not met by the functions currently on offer,
 then we are very happy to accept pull requests!</p>
 <p>We look forward to working with the community on expanding and improving the Ivy mechanics library.</p>
-</div>
-<div class="section" id="citation">
+</section>
+<section id="citation">
 <h1>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">lenton2021ivy</span><span class="p">,</span>
   <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Ivy</span><span class="p">:</span> <span class="n">Templated</span> <span class="n">Deep</span> <span class="n">Learning</span> <span class="k">for</span> <span class="n">Inter</span><span class="o">-</span><span class="n">Framework</span> <span class="n">Portability</span><span class="p">},</span>
@@ -413,11 +411,11 @@ then we are very happy to accept pull requests!</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="documentation-tree">
+</section>
+<section id="documentation-tree">
 <h1>Documentation Tree<a class="headerlink" href="#documentation-tree" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Orientation</span></p>
+<p><span class="caption-text">Orientation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="orientation/axis_angle.html">Axis angle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="orientation/axis_angle/rot_mat_to_axis_angle.html">rot_mat_to_axis_angle</a></li>
@@ -459,7 +457,7 @@ then we are very happy to accept pull requests!</p>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Pose</span></p>
+<p><span class="caption-text">Pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pose/axis_angle_pose.html">Axis angle pose</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pose/axis_angle_pose/euler_pose_to_axis_angle_pose.html">euler_pose_to_axis_angle_pose</a></li>
@@ -490,7 +488,7 @@ then we are very happy to accept pull requests!</p>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Position</span></p>
+<p><span class="caption-text">Position</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="position/coordinate_conversions.html">Coordinate conversions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="position/coordinate_conversions/polar_to_cartesian_coords.html">polar_to_cartesian_coords</a></li>
@@ -505,7 +503,7 @@ then we are very happy to accept pull requests!</p>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Docs</span></p>
+<p><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mech"">Ivy Mech</a></li>
@@ -515,7 +513,7 @@ then we are very happy to accept pull requests!</p>
 <li class="toctree-l1"><a class="reference internal" href="../gym"">Ivy Gym</a></li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
