@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Quaternion &mdash; Ivy Mech 1.0 documentation</title>
@@ -82,7 +81,7 @@
               
             
             
-              <p><span class="caption-text">Orientation</span></p>
+              <p class="caption"><span class="caption-text">Orientation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="axis_angle.html">Axis angle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="euler_angles.html">Euler angles</a></li>
@@ -100,19 +99,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rotation_matrix.html">Rotation matrix</a></li>
 </ul>
-<p><span class="caption-text">Pose</span></p>
+<p class="caption"><span class="caption-text">Pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pose/axis_angle_pose.html">Axis angle pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/euler_pose.html">Euler pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/matrix_pose.html">Matrix pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/quaternion_pose.html">Quaternion pose</a></li>
 </ul>
-<p><span class="caption-text">Position</span></p>
+<p class="caption"><span class="caption-text">Position</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../position/coordinate_conversions.html">Coordinate conversions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../position/transformations.html">Transformations</a></li>
 </ul>
-<p><span class="caption-text">Docs</span></p>
+<p class="caption"><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mech"">Ivy Mech</a></li>
@@ -184,12 +183,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="module-ivy_mech.orientation.quaternion">
+  <div class="section" id="module-ivy_mech.orientation.quaternion">
 <span id="quaternion"></span><h1>Quaternion<a class="headerlink" href="#module-ivy_mech.orientation.quaternion" title="Permalink to this headline">¶</a></h1>
 <p>Collection of Rotation Conversion Functions to Quaternion Format</p>
 <dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.axis_angle_to_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">axis_angle_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#axis_angle_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.axis_angle_to_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">axis_angle_to_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis_angle</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#axis_angle_to_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.axis_angle_to_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert rotation axis unit vector <span class="math notranslate nohighlight">\(\mathbf{e} = [e_x, e_y, e_z]\)</span> and rotation angle <span class="math notranslate nohighlight">\(θ\)</span> to quaternion
 <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions#Quaternions">[reference]</a></p>
@@ -204,57 +203,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">polar_axis_angle_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polar_axis_angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#polar_axis_angle_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert polar axis-angle representation, which constitutes the elevation and azimuth angles of the axis as well
-as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{paa} = [ϕ_e, ϕ_a, θ]\)</span>, to quaternion form
-<span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>polar_axis_angle</strong> (<em>array</em>) – Polar axis angle representation <em>[batch_shape,3]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ivy_mech.orientation.quaternion.rot_mat_to_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">rot_mat_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rot_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#rot_mat_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.rot_mat_to_quaternion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span> to quaternion
-<span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
-<p><a class="reference external" href="http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rot_mat</strong> (<em>array</em>) – Rotation matrix <em>[batch_shape,3,3]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ivy_mech.orientation.quaternion.rotation_vector_to_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">rotation_vector_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rot_vector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#rotation_vector_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.rotation_vector_to_quaternion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert rotation vector <span class="math notranslate nohighlight">\(\mathbf{θ}_{rv} = [θe_x, θe_y, θe_z]\)</span> to quaternion
-<span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions#Euler_axis_and_angle_(rotation_vector)">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rot_vector</strong> (<em>array</em>) – Rotation vector <em>[batch_shape,3]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.euler_to_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">euler_to_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">euler_angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#euler_to_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.euler_to_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">euler_to_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">euler_angles</span></em>, <em class="sig-param"><span class="n">convention</span><span class="o">=</span><span class="default_value">'zyx'</span></em>, <em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#euler_to_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.euler_to_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert <span class="math notranslate nohighlight">\(zyx\)</span> Euler angles <span class="math notranslate nohighlight">\(\mathbf{θ}_{abc} = [ϕ_a, ϕ_b, ϕ_c]\)</span> to quaternion
 <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">[reference]</a></p>
@@ -273,23 +223,8 @@ as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{
 </dd></dl>
 
 <dl class="py function">
-<dt id="ivy_mech.orientation.quaternion.inverse_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">inverse_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#inverse_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.inverse_quaternion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute inverse quaternion :math:<a href="#id5"><span class="problematic" id="id6">`</span></a>mathbf{q}^{-1}.</p>
-<p><a class="reference external" href="https://github.com/KieranWynn/pyquaternion/blob/446c31cba66b708e8480871e70b06415c3cb3b0f/pyquaternion/quaternion.py#L473">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Inverse quaternion <em>[batch_shape,4]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.get_random_quaternion">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">get_random_quaternion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_rot_ang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">π</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#get_random_quaternion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.get_random_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">get_random_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">max_rot_ang</span><span class="o">=</span><span class="default_value">π</span></em>, <em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#get_random_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.get_random_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate random quaternion <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>, adhering to maximum absolute rotation angle.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Quaternion">[reference]</a></p>
 <dl class="field-list simple">
@@ -306,26 +241,8 @@ as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{
 </dd></dl>
 
 <dl class="py function">
-<dt id="ivy_mech.orientation.quaternion.scale_quaternion_rotation_angle">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">scale_quaternion_rotation_angle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#scale_quaternion_rotation_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.scale_quaternion_rotation_angle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Scale the rotation angle <span class="math notranslate nohighlight">\(θ\)</span> of a given quaternion <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions#Quaternions">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – Value to scale by the rotation angle by. Can be negative to change rotation direction.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Quaternion with rotation angle scaled <em>[batch_shape,4]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="ivy_mech.orientation.quaternion.hamilton_product">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">hamilton_product</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quaternion2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#hamilton_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.hamilton_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">hamilton_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quaternion1</span></em>, <em class="sig-param"><span class="n">quaternion2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#hamilton_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.hamilton_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute hamilton product <span class="math notranslate nohighlight">\(\mathbf{h}_p = \mathbf{q}_1 × \mathbf{q}_2\)</span> between
 <span class="math notranslate nohighlight">\(\mathbf{q}_1 = [q_{1i}, q_{1j}, q_{1k}, q_{1r}]\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{q}_2 = [q_{2i}, q_{2j}, q_{2k}, q_{2r}]\)</span>.</p>
@@ -343,8 +260,90 @@ as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="ivy_mech.orientation.quaternion.inverse_quaternion">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">inverse_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quaternion</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#inverse_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.inverse_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute inverse quaternion :math:<a href="#id4"><span class="problematic" id="id5">`</span></a>mathbf{q}^{-1}.</p>
+<p><a class="reference external" href="https://github.com/KieranWynn/pyquaternion/blob/446c31cba66b708e8480871e70b06415c3cb3b0f/pyquaternion/quaternion.py#L473">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inverse quaternion <em>[batch_shape,4]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">polar_axis_angle_to_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">polar_axis_angle</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#polar_axis_angle_to_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.polar_axis_angle_to_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert polar axis-angle representation, which constitutes the elevation and azimuth angles of the axis as well
+as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{paa} = [ϕ_e, ϕ_a, θ]\)</span>, to quaternion form
+<span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>polar_axis_angle</strong> (<em>array</em>) – Polar axis angle representation <em>[batch_shape,3]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy_mech.orientation.quaternion.rot_mat_to_quaternion">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">rot_mat_to_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rot_mat</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#rot_mat_to_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.rot_mat_to_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span> to quaternion
+<span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
+<p><a class="reference external" href="http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rot_mat</strong> (<em>array</em>) – Rotation matrix <em>[batch_shape,3,3]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy_mech.orientation.quaternion.rotation_vector_to_quaternion">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">rotation_vector_to_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rot_vector</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#rotation_vector_to_quaternion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.rotation_vector_to_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert rotation vector <span class="math notranslate nohighlight">\(\mathbf{θ}_{rv} = [θe_x, θe_y, θe_z]\)</span> to quaternion
+<span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions#Euler_axis_and_angle_(rotation_vector)">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rot_vector</strong> (<em>array</em>) – Rotation vector <em>[batch_shape,3]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Quaternion <em>[batch_shape,4]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy_mech.orientation.quaternion.scale_quaternion_rotation_angle">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">scale_quaternion_rotation_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quaternion</span></em>, <em class="sig-param"><span class="n">scale</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/quaternion.html#scale_quaternion_rotation_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.quaternion.scale_quaternion_rotation_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale the rotation angle <span class="math notranslate nohighlight">\(θ\)</span> of a given quaternion <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions#Quaternions">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Value to scale by the rotation angle by. Can be negative to change rotation direction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Quaternion with rotation angle scaled <em>[batch_shape,4]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Quaternion</span></p>
+<p class="caption"><span class="caption-text">Quaternion</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quaternion/axis_angle_to_quaternion.html">axis_angle_to_quaternion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quaternion/polar_axis_angle_to_quaternion.html">polar_axis_angle_to_quaternion</a></li>
@@ -357,7 +356,7 @@ as the rotation angle <span class="math notranslate nohighlight">\(\mathbf{θ}_{
 <li class="toctree-l1"><a class="reference internal" href="quaternion/hamilton_product.html">hamilton_product</a></li>
 </ul>
 </div>
-</section>
+</div>
 
 
            </div>

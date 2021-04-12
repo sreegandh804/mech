@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>target_facing_rotation_matrix &mdash; Ivy Mech 1.0 documentation</title>
@@ -82,7 +81,7 @@
               
             
             
-              <p><span class="caption-text">Orientation</span></p>
+              <p class="caption"><span class="caption-text">Orientation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../axis_angle.html">Axis angle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../euler_angles.html">Euler angles</a></li>
@@ -97,19 +96,19 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Pose</span></p>
+<p class="caption"><span class="caption-text">Pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pose/axis_angle_pose.html">Axis angle pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pose/euler_pose.html">Euler pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pose/matrix_pose.html">Matrix pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pose/quaternion_pose.html">Quaternion pose</a></li>
 </ul>
-<p><span class="caption-text">Position</span></p>
+<p class="caption"><span class="caption-text">Position</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../position/coordinate_conversions.html">Coordinate conversions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../position/transformations.html">Transformations</a></li>
 </ul>
-<p><span class="caption-text">Docs</span></p>
+<p class="caption"><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mech"">Ivy Mech</a></li>
@@ -183,11 +182,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="target-facing-rotation-matrix">
+  <div class="section" id="target-facing-rotation-matrix">
 <h1>target_facing_rotation_matrix<a class="headerlink" href="#target-facing-rotation-matrix" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">target_facing_rotation_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/rotation_matrix.html#target_facing_rotation_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">target_facing_rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">body_pos</span></em>, <em class="sig-param"><span class="n">target_pos</span></em>, <em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dev_str</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ivy_mech/orientation/rotation_matrix.html#target_facing_rotation_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span> of body which corresponds with
 it’s positive z axis facing towards a target world co-ordinate <span class="math notranslate nohighlight">\(\mathbf{x}_t = [t_x, t_y, t_z]\)</span>, given the body
 world co-ordinate <span class="math notranslate nohighlight">\(\mathbf{x}_b = [b_x, b_y, b_z]\)</span>, while assuming world-space positve-z to correspond to up direction.
@@ -213,7 +212,7 @@ This is particularly useful for orienting cameras.
 <div class="line"><strong>Supported Frameworks:</strong></div>
 </div>
 <p><a class="reference internal" href="../../_images/empty.png"><img alt="empty" src="../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../_images/jax_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../_images/empty.png"><img alt="empty" src="../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../_images/tensorflow_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../_images/empty.png"><img alt="empty" src="../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://pytorch.org"><img alt="pytorch_logo" src="../../_images/pytorch_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../_images/empty.png"><img alt="empty" src="../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../_images/mxnet_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../_images/empty.png"><img alt="empty" src="../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://numpy.org"><img alt="numpy_logo" src="../../_images/numpy_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../_images/empty.png"><img alt="empty" src="../../_images/empty.png" style="width: 4%;" /></a></p>
-</section>
+</div>
 
 
            </div>

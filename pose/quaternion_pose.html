@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Quaternion pose &mdash; Ivy Mech 1.0 documentation</title>
@@ -82,14 +81,14 @@
               
             
             
-              <p><span class="caption-text">Orientation</span></p>
+              <p class="caption"><span class="caption-text">Orientation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/axis_angle.html">Axis angle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/euler_angles.html">Euler angles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/quaternion.html">Quaternion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/rotation_matrix.html">Rotation matrix</a></li>
 </ul>
-<p><span class="caption-text">Pose</span></p>
+<p class="caption"><span class="caption-text">Pose</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="axis_angle_pose.html">Axis angle pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="euler_pose.html">Euler pose</a></li>
@@ -102,12 +101,12 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Position</span></p>
+<p class="caption"><span class="caption-text">Position</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../position/coordinate_conversions.html">Coordinate conversions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../position/transformations.html">Transformations</a></li>
 </ul>
-<p><span class="caption-text">Docs</span></p>
+<p class="caption"><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mech"">Ivy Mech</a></li>
@@ -179,12 +178,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="module-ivy_mech.pose.quaternion_pose">
+  <div class="section" id="module-ivy_mech.pose.quaternion_pose">
 <span id="quaternion-pose"></span><h1>Quaternion pose<a class="headerlink" href="#module-ivy_mech.pose.quaternion_pose" title="Permalink to this headline">¶</a></h1>
 <p>Collection of Pose Conversion Functions to Quaternion Pose Format</p>
 <dl class="py function">
 <dt id="ivy_mech.pose.quaternion_pose.axis_angle_pose_to_quaternion_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">axis_angle_pose_to_quaternion_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_angle_pose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#axis_angle_pose_to_quaternion_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.axis_angle_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">axis_angle_pose_to_quaternion_pose</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis_angle_pose</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#axis_angle_pose_to_quaternion_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.axis_angle_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert axis-angle pose <span class="math notranslate nohighlight">\(\mathbf{p}_{aa} = [\mathbf{x}_c, \mathbf{e}, θ] = [x, y, z, e_x, e_y, e_z, θ]\)</span>
 to quaternion pose <span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>.</p>
 <dl class="field-list simple">
@@ -198,24 +197,8 @@ to quaternion pose <span class="math notranslate nohighlight">\(\mathbf{p}_{q} =
 </dd></dl>
 
 <dl class="py function">
-<dt id="ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">mat_pose_to_quaternion_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#mat_pose_to_quaternion_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert matrix pose <span class="math notranslate nohighlight">\(\mathbf{P}\in\mathbb{R}^{3×4}\)</span> to quaternion pose
-<span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>.</p>
-<p><a class="reference external" href="http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>matrix</strong> (<em>array</em>) – Matrix pose <em>[batch_shape,3,4]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Quaternion pose <em>[batch_shape,7]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="ivy_mech.pose.quaternion_pose.euler_pose_to_quaternion_pose">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">euler_pose_to_quaternion_pose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">euler_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#euler_pose_to_quaternion_pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.euler_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">euler_pose_to_quaternion_pose</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">euler_pose</span></em>, <em class="sig-param"><span class="n">convention</span><span class="o">=</span><span class="default_value">'zyx'</span></em>, <em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#euler_pose_to_quaternion_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.euler_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert :math: Euler angle pose
 <span class="math notranslate nohighlight">\(\mathbf{p}_{abc} = [\mathbf{x}_c, \mathbf{θ}_{xyz}] = [x, y, z, ϕ_a, ϕ_b, ϕ_c]\)</span> to quaternion pose
 <span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>.</p>
@@ -236,7 +219,7 @@ to quaternion pose <span class="math notranslate nohighlight">\(\mathbf{p}_{q} =
 
 <dl class="py function">
 <dt id="ivy_mech.pose.quaternion_pose.increment_quaternion_pose_with_velocity">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">increment_quaternion_pose_with_velocity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quat_pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quat_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#increment_quaternion_pose_with_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.increment_quaternion_pose_with_velocity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">increment_quaternion_pose_with_velocity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quat_pose</span></em>, <em class="sig-param"><span class="n">quat_vel</span></em>, <em class="sig-param"><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#increment_quaternion_pose_with_velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.increment_quaternion_pose_with_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increment a quaternion pose <span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>
 forward by one time-increment <span class="math notranslate nohighlight">\(Δt\)</span>, given the velocity represented in quaternion form <span class="math notranslate nohighlight">\(\mathbf{V}_q\)</span>.
 Where <span class="math notranslate nohighlight">\(\mathbf{P}_q (t+1) = \mathbf{P}_q(t) × \mathbf{V}_q\)</span>, <span class="math notranslate nohighlight">\(t\)</span> is in seconds, and <span class="math notranslate nohighlight">\(×\)</span> denotes
@@ -256,8 +239,24 @@ the hamilton product.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">mat_pose_to_quaternion_pose</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/pose/quaternion_pose.html#mat_pose_to_quaternion_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.pose.quaternion_pose.mat_pose_to_quaternion_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert matrix pose <span class="math notranslate nohighlight">\(\mathbf{P}\in\mathbb{R}^{3×4}\)</span> to quaternion pose
+<span class="math notranslate nohighlight">\(\mathbf{p}_{q} = [\mathbf{x}_c, \mathbf{q}] = [x, y, z, q_i, q_j, q_k, q_r]\)</span>.</p>
+<p><a class="reference external" href="http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>array</em>) – Matrix pose <em>[batch_shape,3,4]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Quaternion pose <em>[batch_shape,7]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Quaternion pose</span></p>
+<p class="caption"><span class="caption-text">Quaternion pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quaternion_pose/axis_angle_pose_to_quaternion_pose.html">axis_angle_pose_to_quaternion_pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quaternion_pose/mat_pose_to_quaternion_pose.html">mat_pose_to_quaternion_pose</a></li>
@@ -265,7 +264,7 @@ the hamilton product.</p>
 <li class="toctree-l1"><a class="reference internal" href="quaternion_pose/increment_quaternion_pose_with_velocity.html">increment_quaternion_pose_with_velocity</a></li>
 </ul>
 </div>
-</section>
+</div>
 
 
            </div>

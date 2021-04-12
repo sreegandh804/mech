@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Rotation matrix &mdash; Ivy Mech 1.0 documentation</title>
@@ -82,7 +81,7 @@
               
             
             
-              <p><span class="caption-text">Orientation</span></p>
+              <p class="caption"><span class="caption-text">Orientation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="axis_angle.html">Axis angle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="euler_angles.html">Euler angles</a></li>
@@ -97,19 +96,19 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Pose</span></p>
+<p class="caption"><span class="caption-text">Pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pose/axis_angle_pose.html">Axis angle pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/euler_pose.html">Euler pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/matrix_pose.html">Matrix pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/quaternion_pose.html">Quaternion pose</a></li>
 </ul>
-<p><span class="caption-text">Position</span></p>
+<p class="caption"><span class="caption-text">Position</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../position/coordinate_conversions.html">Coordinate conversions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../position/transformations.html">Transformations</a></li>
 </ul>
-<p><span class="caption-text">Docs</span></p>
+<p class="caption"><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mech"">Ivy Mech</a></li>
@@ -181,34 +180,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="module-ivy_mech.orientation.rotation_matrix">
+  <div class="section" id="module-ivy_mech.orientation.rotation_matrix">
 <span id="rotation-matrix"></span><h1>Rotation matrix<a class="headerlink" href="#module-ivy_mech.orientation.rotation_matrix" title="Permalink to this headline">¶</a></h1>
 <p>Collection of Rotation Conversion Functions to Rotation Matrix Format</p>
 <dl class="py function">
-<dt id="ivy_mech.orientation.rotation_matrix.rot_vec_to_rot_mat">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">rot_vec_to_rot_mat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rot_vec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#rot_vec_to_rot_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.rot_vec_to_rot_mat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert rotation vector <span class="math notranslate nohighlight">\(\mathbf{θ}_{rv} = [θe_x, θe_y, θe_z]\)</span> to rotation matrix
-<span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle">[reference]</a></p>
+<dt id="ivy_mech.orientation.rotation_matrix.axis_angle_to_rot_mat">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">axis_angle_to_rot_mat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis_angle</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#axis_angle_to_rot_mat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.axis_angle_to_rot_mat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert rotation axis unit vector <span class="math notranslate nohighlight">\(\mathbf{e} = [e_x, e_y, e_z]\)</span> and
+rotation angle <span class="math notranslate nohighlight">\(θ\)</span> to rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rot_vec</strong> (<em>array</em>) – Rotation vector <em>[batch_shape,3]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Rotation matrix <em>[batch_shape,3,3]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ivy_mech.orientation.rotation_matrix.quaternion_to_rot_mat">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">quaternion_to_rot_mat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#quaternion_to_rot_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.quaternion_to_rot_mat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert quaternion <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span> to rotation matrix
-<span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion_to_and_from_the_matrix_representation">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p>
+<dd class="field-odd"><p><strong>axis_angle</strong> (<em>array</em>) – Axis-angle <em>[batch_shape,4]</em></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Rotation matrix <em>[batch_shape,3,3]</em></p>
@@ -218,7 +200,7 @@
 
 <dl class="py function">
 <dt id="ivy_mech.orientation.rotation_matrix.euler_to_rot_mat">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">euler_to_rot_mat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">euler_angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convention</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#euler_to_rot_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.euler_to_rot_mat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">euler_to_rot_mat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">euler_angles</span></em>, <em class="sig-param"><span class="n">convention</span><span class="o">=</span><span class="default_value">'zyx'</span></em>, <em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dev_str</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#euler_to_rot_mat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.euler_to_rot_mat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert <span class="math notranslate nohighlight">\(zyx\)</span> Euler angles <span class="math notranslate nohighlight">\(\mathbf{θ}_{abc} = [ϕ_a, ϕ_b, ϕ_c]\)</span> to rotation matrix
 <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix">[reference]</a></p>
@@ -238,8 +220,49 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="ivy_mech.orientation.rotation_matrix.get_random_rot_mat">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">get_random_rot_mat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#get_random_rot_mat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.get_random_rot_mat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate random rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.
+:param batch_shape: Shape of batch. Shape of [1] is assumed if None.
+:type batch_shape: sequence of ints, optional
+:return: Random rotation matrix <em>[batch_shape,3,3]</em></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy_mech.orientation.rotation_matrix.quaternion_to_rot_mat">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">quaternion_to_rot_mat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quaternion</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#quaternion_to_rot_mat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.quaternion_to_rot_mat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert quaternion <span class="math notranslate nohighlight">\(\mathbf{q} = [q_i, q_j, q_k, q_r]\)</span> to rotation matrix
+<span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#Conversion_to_and_from_the_matrix_representation">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>quaternion</strong> (<em>array</em>) – Quaternion <em>[batch_shape,4]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Rotation matrix <em>[batch_shape,3,3]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ivy_mech.orientation.rotation_matrix.rot_vec_to_rot_mat">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">rot_vec_to_rot_mat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rot_vec</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#rot_vec_to_rot_mat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.rot_vec_to_rot_mat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert rotation vector <span class="math notranslate nohighlight">\(\mathbf{θ}_{rv} = [θe_x, θe_y, θe_z]\)</span> to rotation matrix
+<span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rot_vec</strong> (<em>array</em>) – Rotation vector <em>[batch_shape,3]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Rotation matrix <em>[batch_shape,3,3]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">target_facing_rotation_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#target_facing_rotation_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">target_facing_rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">body_pos</span></em>, <em class="sig-param"><span class="n">target_pos</span></em>, <em class="sig-param"><span class="n">batch_shape</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dev_str</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#target_facing_rotation_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.target_facing_rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span> of body which corresponds with
 it’s positive z axis facing towards a target world co-ordinate <span class="math notranslate nohighlight">\(\mathbf{x}_t = [t_x, t_y, t_z]\)</span>, given the body
 world co-ordinate <span class="math notranslate nohighlight">\(\mathbf{x}_b = [b_x, b_y, b_z]\)</span>, while assuming world-space positve-z to correspond to up direction.
@@ -260,32 +283,8 @@ This is particularly useful for orienting cameras.
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt id="ivy_mech.orientation.rotation_matrix.axis_angle_to_rot_mat">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">axis_angle_to_rot_mat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#axis_angle_to_rot_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.axis_angle_to_rot_mat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert rotation axis unit vector <span class="math notranslate nohighlight">\(\mathbf{e} = [e_x, e_y, e_z]\)</span> and
-rotation angle <span class="math notranslate nohighlight">\(θ\)</span> to rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>axis_angle</strong> (<em>array</em>) – Axis-angle <em>[batch_shape,4]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Rotation matrix <em>[batch_shape,3,3]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ivy_mech.orientation.rotation_matrix.get_random_rot_mat">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">get_random_rot_mat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/orientation/rotation_matrix.html#get_random_rot_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.orientation.rotation_matrix.get_random_rot_mat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate random rotation matrix <span class="math notranslate nohighlight">\(\mathbf{R}\in\mathbb{R}^{3×3}\)</span>.
-:param batch_shape: Shape of batch. Shape of [1] is assumed if None.
-:type batch_shape: sequence of ints, optional
-:return: Random rotation matrix <em>[batch_shape,3,3]</em></p>
-</dd></dl>
-
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Rotation matrix</span></p>
+<p class="caption"><span class="caption-text">Rotation matrix</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="rotation_matrix/rot_vec_to_rot_mat.html">rot_vec_to_rot_mat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation_matrix/quaternion_to_rot_mat.html">quaternion_to_rot_mat</a></li>
@@ -295,7 +294,7 @@ rotation angle <span class="math notranslate nohighlight">\(θ\)</span> to rotat
 <li class="toctree-l1"><a class="reference internal" href="rotation_matrix/get_random_rot_mat.html">get_random_rot_mat</a></li>
 </ul>
 </div>
-</section>
+</div>
 
 
            </div>

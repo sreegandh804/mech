@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Coordinate conversions &mdash; Ivy Mech 1.0 documentation</title>
@@ -82,21 +81,21 @@
               
             
             
-              <p><span class="caption-text">Orientation</span></p>
+              <p class="caption"><span class="caption-text">Orientation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/axis_angle.html">Axis angle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/euler_angles.html">Euler angles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/quaternion.html">Quaternion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orientation/rotation_matrix.html">Rotation matrix</a></li>
 </ul>
-<p><span class="caption-text">Pose</span></p>
+<p class="caption"><span class="caption-text">Pose</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pose/axis_angle_pose.html">Axis angle pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/euler_pose.html">Euler pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/matrix_pose.html">Matrix pose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pose/quaternion_pose.html">Quaternion pose</a></li>
 </ul>
-<p><span class="caption-text">Position</span></p>
+<p class="caption"><span class="caption-text">Position</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Coordinate conversions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="coordinate_conversions/polar_to_cartesian_coords.html">polar_to_cartesian_coords</a></li>
@@ -105,7 +104,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="transformations.html">Transformations</a></li>
 </ul>
-<p><span class="caption-text">Docs</span></p>
+<p class="caption"><span class="caption-text">Docs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../ivy"">Ivy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mech"">Ivy Mech</a></li>
@@ -177,28 +176,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="module-ivy_mech.position.coordinate_conversions">
+  <div class="section" id="module-ivy_mech.position.coordinate_conversions">
 <span id="coordinate-conversions"></span><h1>Coordinate conversions<a class="headerlink" href="#module-ivy_mech.position.coordinate_conversions" title="Permalink to this headline">¶</a></h1>
 <p>Collection of Position Co-ordinate Conversion Functions</p>
 <dl class="py function">
-<dt id="ivy_mech.position.coordinate_conversions.polar_to_cartesian_coords">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">polar_to_cartesian_coords</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polar_coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/position/coordinate_conversions.html#polar_to_cartesian_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.position.coordinate_conversions.polar_to_cartesian_coords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert spherical polar co-ordinates <span class="math notranslate nohighlight">\(\mathbf{x}_p = [r, α, β]\)</span> to cartesian co-ordinates
-<span class="math notranslate nohighlight">\(\mathbf{x}_c = [x, y, z]\)</span>.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system#Cartesian_coordinates">[reference]</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>polar_coords</strong> (<em>array</em>) – Spherical polar co-ordinates <em>[batch_shape,3]</em></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Cartesian co-ordinates <em>[batch_shape,3]</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="ivy_mech.position.coordinate_conversions.cartesian_to_polar_coords">
-<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname"><span class="pre">cartesian_to_polar_coords</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cartesian_coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/position/coordinate_conversions.html#cartesian_to_polar_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy_mech.position.coordinate_conversions.cartesian_to_polar_coords" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">cartesian_to_polar_coords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cartesian_coords</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/position/coordinate_conversions.html#cartesian_to_polar_coords"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.position.coordinate_conversions.cartesian_to_polar_coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert cartesian co-ordinates <span class="math notranslate nohighlight">\(\mathbf{x}_c = [x, y, z]\)</span> to spherical polar co-ordinates
 <span class="math notranslate nohighlight">\(\mathbf{x}_p = [r, α, β]\)</span>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system#Cartesian_coordinates">[reference]</a></p>
@@ -212,14 +195,30 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="ivy_mech.position.coordinate_conversions.polar_to_cartesian_coords">
+<code class="sig-prename descclassname">ivy_mech.</code><code class="sig-name descname">polar_to_cartesian_coords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">polar_coords</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ivy_mech/position/coordinate_conversions.html#polar_to_cartesian_coords"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ivy_mech.position.coordinate_conversions.polar_to_cartesian_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert spherical polar co-ordinates <span class="math notranslate nohighlight">\(\mathbf{x}_p = [r, α, β]\)</span> to cartesian co-ordinates
+<span class="math notranslate nohighlight">\(\mathbf{x}_c = [x, y, z]\)</span>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system#Cartesian_coordinates">[reference]</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>polar_coords</strong> (<em>array</em>) – Spherical polar co-ordinates <em>[batch_shape,3]</em></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cartesian co-ordinates <em>[batch_shape,3]</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Coordinate conversions</span></p>
+<p class="caption"><span class="caption-text">Coordinate conversions</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="coordinate_conversions/polar_to_cartesian_coords.html">polar_to_cartesian_coords</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coordinate_conversions/cartesian_to_polar_coords.html">cartesian_to_polar_coords</a></li>
 </ul>
 </div>
-</section>
+</div>
 
 
            </div>
