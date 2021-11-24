@@ -383,7 +383,7 @@
 
     <span class="c1"># BS x 3</span>
     <span class="n">quaternion_vector</span> <span class="o">=</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">batch_shape</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-    <span class="n">vec_len</span> <span class="o">=</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">quaternion_vector</span><span class="p">)</span>
+    <span class="n">vec_len</span> <span class="o">=</span> <span class="n">_ivy</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">quaternion_vector</span><span class="p">)</span>
     <span class="n">quaternion_vector</span> <span class="o">/=</span> <span class="p">(</span><span class="n">vec_len</span> <span class="o">+</span> <span class="n">MIN_DENOMINATOR</span><span class="p">)</span>
 
     <span class="c1"># BS x 1</span>
