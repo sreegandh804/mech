@@ -312,6 +312,13 @@ Documentation Tree
 
 .. toctree::
    :maxdepth: -1
+   :caption: .idea
+
+   .idea/inspectionProfiles.rst
+
+
+.. toctree::
+   :maxdepth: -1
    :caption: Orientation
 
    orientation/axis_angle.rst
