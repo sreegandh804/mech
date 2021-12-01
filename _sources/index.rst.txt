@@ -354,8 +354,11 @@ The scripts for these demos can be found in the interactive_ demos folder.
 The first demo uses the method ``ivy_mech.target_facing_rotation_matrix`` to dynamically
 track a moving target plant pot with a camera, as shown below:
 
-.. image:: https://github.com/ivy-dl/ivy-dl.github.io/blob/master/img/externally_linked/ivy_mech/demo_a.gif?raw=true
-   :width: 75%
+.. raw:: html
+
+    <p align="center">
+        <img width="75%" style="display: block;" src='https://github.com/ivy-dl/ivy-dl.github.io/blob/master/img/externally_linked/ivy_mech/demo_a.gif?raw=true'>
+    </p>
 
 **Polar to Cartesian Co-ordinates**
 
@@ -363,8 +366,11 @@ The second demo uses the method ``ivy_mech.polar_to_cartesian_coords`` to conver
 acquired from an omni-directional camera into cartesian co-ordinates,
 enabling the surrounding geometry to be represented as a point cloud, for interactive visualization.
 
-.. image:: https://github.com/ivy-dl/ivy-dl.github.io/blob/master/img/externally_linked/ivy_mech/demo_b.gif?raw=true
-   :width: 75%
+.. raw:: html
+
+    <p align="center">
+        <img width="75%" style="display: block;" src='https://github.com/ivy-dl/ivy-dl.github.io/blob/master/img/externally_linked/ivy_mech/demo_b.gif?raw=true'>
+    </p>
 
 Get Involed
 -----------
