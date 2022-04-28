@@ -9,6 +9,7 @@ Axis angle pose
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Axis angle pose
 

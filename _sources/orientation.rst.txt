@@ -4,6 +4,7 @@ Orientation
 Orientation library.
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Orientation
 

@@ -9,6 +9,7 @@ Euler pose
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Euler pose
 

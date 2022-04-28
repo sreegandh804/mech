@@ -9,6 +9,7 @@ Matrix pose
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Matrix pose
 

@@ -4,6 +4,7 @@ Pose
 Pose library.
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Pose
 

@@ -4,6 +4,7 @@ Position
 Position library.
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Position
 

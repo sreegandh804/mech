@@ -9,6 +9,7 @@ Coordinate conversions
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Coordinate conversions
 

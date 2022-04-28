@@ -9,6 +9,7 @@ Rotation matrix
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Rotation matrix
 

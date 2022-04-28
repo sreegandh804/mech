@@ -9,6 +9,7 @@ Quaternion pose
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Quaternion pose
 
